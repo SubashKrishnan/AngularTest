@@ -1,0 +1,32 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <div class="row">
+    <div class="col-lg-6">
+      <form role="form" [formGroup]="sellerForm">
+        <fieldset class="form-group">
+          <label>Seller</label>
+          <select formControlName="sellerId" class="form-control">
+            <option value="" disabled="disabled">--Select Seller --</option>
+            <option *ngFor="let item of Sellers" [value]="item.sellerId">
+              {{ item.sellerName}}
+            </option>
+          </select>
+        </fieldset>
+        <label>Lead</label>
+        <div class="row">
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="lead">
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-primary" (click)="UpdateSubscribedSellers()" type="button">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
